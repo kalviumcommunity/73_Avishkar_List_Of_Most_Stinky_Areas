@@ -38,3 +38,6 @@ The goal of this project is to create a fun, engaging, and fully functional appl
 - Working with a NoSQL database (MongoDB)
 - Using modern web development tools and frameworks (React, Vite)
 
+## Render deployment link
+https://seven3-avishkar-list-of-most-stinky-areas.onrender.com
+
