@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "A web application that allows users to contribute and view a dynamic list of the most stinky areas across India. This app will allow users to submit, vote on, and explore the areas they believe have the worst odors, based on their experiences.",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
 }
