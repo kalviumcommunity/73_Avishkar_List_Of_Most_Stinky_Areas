@@ -42,6 +42,10 @@ app.use("/api/users", userRoutes);
 app.use("/api/stinky-areas", stinkyAreaRoutes);
 app.use("/api/comments", commentRoutes);
 
+app.get("/", (req, res) => {
+  res.send("Backend is live!");
+});
+
 // Connect to MongoDB
 const connectDB = async () => {
   try {
