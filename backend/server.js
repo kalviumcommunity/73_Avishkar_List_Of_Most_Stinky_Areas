@@ -2,7 +2,12 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
-import { User, StinkyArea, Comment } from "./model/index.js";
+import path from "path";
+import { fileURLToPath } from "url";
+// Route imports
+import userRoutes from "./routes/userRoutes.js";
+import stinkyAreaRoutes from "./routes/stinkyAreaRoutes.js";
+import commentRoutes from "./routes/commentRoutes.js";
 
 dotenv.config();
 
@@ -11,6 +16,10 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 const MONGO_URI = process.env.MONGO_URI;
 const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:5173";
+
+// Get __dirname equivalent in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Middleware
 app.use(express.json()); // Parse JSON requests
@@ -24,6 +33,14 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
+// Serve uploaded files statically (for development fallback)
+app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
+
+// API routes
+app.use("/api/users", userRoutes);
+app.use("/api/stinky-areas", stinkyAreaRoutes);
+app.use("/api/comments", commentRoutes);
 
 // Connect to MongoDB
 const connectDB = async () => {
