@@ -43,6 +43,3 @@ The goal of this project is to create a fun, engaging, and fully functional appl
 
 https://asapproject-avishkar.vercel.app
 
-
-
-
